@@ -7,7 +7,9 @@ int main(int argc, char* argv[])
 {
 	int desiredPitch = 0;
 	int desiredRoll = 0;
-	int desiredHeight = 100;
+	int desiredHeight;
+	std::cout << "Enter hover height:\n";
+	std::cin  >> desiredHeight;
 	int desiredPower = 100; //This needs to change based on how high it goes / power
 	float pwrNum = 2; //This number decides how much the copter should correct. It changes\
 				based on how far the copter overshoots and stuff.

@@ -67,19 +67,19 @@ void move()
 	
 	std::cout << "Pitch: "  << pitch  << "	Roll: " << roll << std::endl;
 	std::cout << "Height: " << height << std::endl;
-	for(int i = 0; i < 50; i++)
+	for(int i = 0; i < 53; i++)
 	{
-		if(i == (int)(110 - height))
+		if(i == (int)(51 - (height/3)))
 		{
-			std::cout << "####################\n";
+			std::cout << "                                                                    ####################\n";
 		}
-		else if(i == 49)
+		else if(i == 52)
 		{
-			std::cout << "____________________\n";
+			std::cout << "_________________________________________________________________________________________________________________________________________________________________\n";
 		}
 		else
 		{
-			std::cout << "                    \n";
+			std::cout << "\n";
 		}
 	}
 }
