@@ -52,18 +52,34 @@ void move()
 {
 	pitch += BR*aNum + BL*aNum;
 	pitch -= FR*aNum + FL*aNum;
-	//pitch += rand()%21 - 10;
+	pitch += rand()%9 - 4;
  
 	roll  += FL*aNum + BL*aNum;
 	roll  -= FR*aNum + BR*aNum;
-	//roll  += rand()%21 - 10;
+	roll  += rand()%9 - 4;
 	
 	vel = (FR*aNum + FL*aNum + BR*aNum + BL*aNum) - 30;
 	height += vel;
 	height = (height < 0) ? 0 : height;
 	
-	std::cout << "FL: " << (int)FL << "	FR: " << (int)FR << std::endl;
-	std::cout << "BL: " << (int)BL << "	BR: " << (int)BR << std::endl;
-	std::cout << "Pitch: " << pitch << "	Roll: " << roll << std::endl;
+	std::cout << "FL: " << (int)FL << "	FR: "   << (int)FR << std::endl;
+	std::cout << "BL: " << (int)BL << "	BR: "   << (int)BR << std::endl;
+	
+	std::cout << "Pitch: "  << pitch  << "	Roll: " << roll << std::endl;
 	std::cout << "Height: " << height << std::endl;
+	for(int i = 0; i < 50; i++)
+	{
+		if(i == (int)(110 - height))
+		{
+			std::cout << "####################\n";
+		}
+		else if(i == 49)
+		{
+			std::cout << "____________________\n";
+		}
+		else
+		{
+			std::cout << "                    \n";
+		}
+	}
 }
