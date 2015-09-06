@@ -2,47 +2,53 @@
 #include <stdlib.h>
 #include <iostream>
 
-Copter::Copter()
-{
-	pitch = 100;
-	roll = -100;
-	FR = 0;
-	FL = 0;
-	BR = 0;
-	BL = 0;
-}
+double pitch = 100;
+double roll  = -100;
 
-int8_t Copter::getPitch()
+uint8_t FR = 0;
+uint8_t FL = 0;
+uint8_t BR = 0;
+uint8_t BL = 0;
+
+double height = 0;
+double vel = 0;
+
+int8_t getPitch()
 {
 	return pitch;
 }
 
-int8_t Copter::getRoll()
+int8_t getRoll()
 {
 	return roll;
 }
 
-void Copter::setFR(uint8_t setNum)
+void setFR(uint8_t setNum)
 {
 	FR = setNum;
 }
 
-void Copter::setFL(uint8_t setNum)
+void setFL(uint8_t setNum)
 {
 	FL = setNum;
 }
 
-void Copter::setBR(uint8_t setNum)
+void setBR(uint8_t setNum)
 {
 	BR = setNum;
 }
 
-void Copter::setBL(uint8_t setNum)
+void setBL(uint8_t setNum)
 {
 	BL = setNum;
 }
 
-void Copter::move()
+uint8_t getHeight()
+{
+	return height;
+}
+
+void move()
 {
 	pitch += BR*aNum + BL*aNum;
 	pitch -= FR*aNum + FL*aNum;
@@ -51,8 +57,13 @@ void Copter::move()
 	roll  += FL*aNum + BL*aNum;
 	roll  -= FR*aNum + BR*aNum;
 	//roll  += rand()%21 - 10;
-
+	
+	vel = (FR*aNum + FL*aNum + BR*aNum + BL*aNum) - 30;
+	height += vel;
+	height = (height < 0) ? 0 : height;
+	
 	std::cout << "FL: " << (int)FL << "	FR: " << (int)FR << std::endl;
 	std::cout << "BL: " << (int)BL << "	BR: " << (int)BR << std::endl;
 	std::cout << "Pitch: " << pitch << "	Roll: " << roll << std::endl;
+	std::cout << "Height: " << height << std::endl;
 }
