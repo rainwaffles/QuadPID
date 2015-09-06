@@ -15,7 +15,8 @@ int main(int argc, char* argv[])
 				based on how far the copter overshoots and stuff.
 	c = new Copter();
 	
-	for(int i = 0; i < 100; i++)
+	//for(int i = 0; i < 100; i++)
+	while(true)
 	{
 		c->move();
 		int pDiff = c->getPitch() - desiredPitch;
@@ -24,6 +25,6 @@ int main(int argc, char* argv[])
 		c->setFL(std::min(std::max((int)(basePower + pDiff*pwrNum - rDiff*pwrNum), 0), 255));
 		c->setBR(std::min(std::max((int)(basePower - pDiff*pwrNum + rDiff*pwrNum), 0), 255));
 		c->setBL(std::min(std::max((int)(basePower - pDiff*pwrNum - rDiff*pwrNum), 0), 255));
-		usleep(1000);
+		usleep(50000);
 	}
 }
