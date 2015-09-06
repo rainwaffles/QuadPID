@@ -2,3 +2,6 @@ This is the AVBotz software entrance assignment.
 
 Author: Evan McNeil
 Usage: Figure it out yourself :/
+
+Status:
+IDK how to handle height of the copter, the "simulation" is really basic atm, next thing to do is adjust how much the copter adjusts based on derivative (idk how to do it with integrals)
